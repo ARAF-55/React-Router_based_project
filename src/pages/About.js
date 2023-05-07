@@ -1,6 +1,13 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { Navigate } from 'react-router-dom';
 
 function About() {
+    const [user, setUser] = useState('araf');
+
+    if (!user) {
+        return <Navigate to="/" replace={true} />
+    }
+
     return (
         <div>
             <h2>About us</h2>
@@ -31,6 +38,7 @@ function About() {
                 Excepteur sint occaecat cupidatat non proident,
                 sunt in culpa qui officia deserunt mollit anim id est laborum.
             </p>
+            <button onClick={() => setUser(null)}>Logout</button>
         </div>
     );
 }
